@@ -24,3 +24,17 @@ function showSection(sectionId) {
     document.getElementById("github-btn").addEventListener("click", function () {
         showSection("github-profile");
     });
+	
+document.getElementById("contact-form").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    let formData = new FormData(this);
+
+    let response = await fetch("/send-email/", {
+        method: "POST",
+        body: formData
+    });
+
+    let result = await response.json();
+    alert(result.message);
+});
