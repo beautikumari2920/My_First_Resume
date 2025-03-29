@@ -110,3 +110,9 @@ ul li:nth-child(odd) {
     display: none !important;  /* Force hide the element */
 }
 
+#photo-gallery img {
+    max-width: 100%; /* Ensures the image is never larger than its container */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes extra spacing below inline images */
+    margin: 0 auto; /* Centers the image */
+}
