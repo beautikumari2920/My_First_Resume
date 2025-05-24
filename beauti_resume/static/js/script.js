@@ -1,26 +1,32 @@
-// Dark Mode Toggle
-document.getElementById('toggle-theme').addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+document.getElementById("toggle-theme").addEventListener("click", function() {
+    let body = document.body;
+    let button = document.getElementById("toggle-theme");
+
+    if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("sepia-mode");
+        button.innerHTML = '<i class="fa-solid fa-sun"></i> Switch to Light Mode';
+    } else if (body.classList.contains("sepia-mode")) {
+        body.classList.remove("sepia-mode");
+        body.classList.add("light-mode");
+        button.innerHTML = '<i class="fa-solid fa-moon"></i> Switch to Dark Mode';
+    } else if (body.classList.contains("light-mode")) {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        button.innerHTML = '<i class="fa-solid fa-adjust"></i> Switch to Sepia Mode';
+    } else {
+        body.classList.add("dark-mode");
+        button.innerHTML = '<i class="fa-solid fa-sun"></i> Switch to Light Mode';
+    }
 });
 
-function showSection(sectionId) {
-        // Hide all sections
-        document.getElementById("photo-gallery").classList.add("hidden");
-        document.getElementById("linkedin-profile").classList.add("hidden");
-        document.getElementById("github-profile").classList.add("hidden");
+document.getElementById("photos-btn").addEventListener("click", function() {
+    let section = document.getElementById("photo-gallery");
 
-        // Show the selected section
-        document.getElementById(sectionId).classList.remove("hidden");
-    }
+    // Toggle the "hidden" class on each click
+    section.classList.toggle("hidden");
+});
 
-    document.getElementById("photos-btn").addEventListener("click", function () {
-        showSection("photo-gallery");
-    });
 
-    document.getElementById("linkedin-btn").addEventListener("click", function () {
-        showSection("linkedin-profile");
-    });
 
-    document.getElementById("github-btn").addEventListener("click", function () {
-        showSection("github-profile");
-    });
+

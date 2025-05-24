@@ -8,20 +8,24 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Header */
 header {
-    background-color: #4CAF50;
+    background: linear-gradient(to right, #4CAF50, #2E8B57);
     color: white;
-    padding: 20px;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-in;
 }
 
+/* Navigation */
 nav {
     display: flex;
     justify-content: center;
     gap: 20px;
     background-color: #4CAF50;
-    padding: 15px 0;
+    padding: 15px;
     border-radius: 10px;
     margin: 20px;
     flex-wrap: wrap;
@@ -33,14 +37,18 @@ nav a, nav button {
     padding: 10px 20px;
     background-color: #6fbf73;
     border-radius: 5px;
+    border: 2px solid black;
     cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+nav a:hover, nav button:hover {
     background-color: #005bb5;
+    transform: scale(1.05);
 }
 
-/* Section Styles */
+/* Sections */
 section {
     background-color: white;
     margin: 20px;
@@ -55,7 +63,7 @@ section h2 {
     padding-bottom: 5px;
 }
 
-/* List Styles */
+/* Lists */
 ul {
     list-style-type: none;
     padding: 0;
@@ -72,62 +80,38 @@ ul li:nth-child(odd) {
     background-color: #d0e6d0;
 }
 
-/* Dark Mode */
+/* Dark / Sepia / Light Modes */
+.dark-mode, .sepia-mode, .light-mode {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .dark-mode {
     background-color: #2c3e50;
     color: #ecf0f1;
 }
 
-.dark-mode header {
-    background-color: #1a252f;
+.sepia-mode {
+    background-color: #f4d8ec;
+    color: #5b4636;
 }
 
-.dark-mode nav {
-    background-color: #1a252f;
+.light-mode {
+    background-color: white;
+    color: black;
 }
 
-.dark-mode nav a, .dark-mode nav button {
-    background-color: #34495e;
-    color: #ecf0f1;
-}
-
-.close-button {
-    margin: 10px;
-    padding: 8px 16px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.close-button:hover {
-    background-color: #c0392b;
-}	
-
-.hidden {
-    display: none !important;  /* Force hide the element */
-}
-
-#photo-gallery img {
-    max-width: 100%; /* Ensures the image is never larger than its container */
-    height: auto; /* Maintains the aspect ratio */
-    display: block; /* Removes extra spacing below inline images */
-    margin: 0 auto; /* Centers the image */
-}
+/* Contact Form */
 #contact {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: 20px auto;
 }
 
 #contact h2 {
     text-align: center;
-    color: #333;
 }
 
 #contact-form {
@@ -150,18 +134,74 @@ ul li:nth-child(odd) {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #contact-form button:hover {
     background: #218838;
+    transform: scale(1.05);
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 15px;
     background-color: #333;
     color: white;
-    position: relative;
-    bottom: 0;
     width: 100%;
+}
+
+/* Image Styling */
+#photo-gallery img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.close-button {
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.animated-name {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #2b00ff; /* Gold color for elegance */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    animation: glowText 2s infinite alternate, slideIn 1.5s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Glowing Effect */
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
